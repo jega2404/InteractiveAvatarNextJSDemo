@@ -1,5 +1,4 @@
 import { useCallback } from "react";
-
 import { useStreamingAvatarContext } from "./context";
 
 export const useVoiceChat = () => {
@@ -16,33 +15,39 @@ export const useVoiceChat = () => {
   const startVoiceChat = useCallback(
     async (isInputAudioMuted?: boolean) => {
       if (!avatarRef.current) return;
+
       setIsVoiceChatLoading(true);
-      await avatarRef.current?.startVoiceChat({
+
+      await avatarRef.current.startVoiceChat({
         isInputAudioMuted,
       });
+
       setIsVoiceChatLoading(false);
       setIsVoiceChatActive(true);
       setIsMuted(!!isInputAudioMuted);
     },
-    [avatarRef, setIsMuted, setIsVoiceChatActive, setIsVoiceChatLoading],
+    [avatarRef, setIsMuted, setIsVoiceChatActive, setIsVoiceChatLoading]
   );
 
   const stopVoiceChat = useCallback(() => {
     if (!avatarRef.current) return;
-    avatarRef.current?.closeVoiceChat();
+
+    avatarRef.current.closeVoiceChat(); // stop socket + stt
     setIsVoiceChatActive(false);
     setIsMuted(true);
   }, [avatarRef, setIsMuted, setIsVoiceChatActive]);
 
   const muteInputAudio = useCallback(() => {
     if (!avatarRef.current) return;
-    avatarRef.current?.muteInputAudio();
+
+    avatarRef.current.muteInputAudio();
     setIsMuted(true);
   }, [avatarRef, setIsMuted]);
 
   const unmuteInputAudio = useCallback(() => {
     if (!avatarRef.current) return;
-    avatarRef.current?.unmuteInputAudio();
+
+    avatarRef.current.unmuteInputAudio();
     setIsMuted(false);
   }, [avatarRef, setIsMuted]);
 

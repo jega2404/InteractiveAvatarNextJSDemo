@@ -8,7 +8,7 @@ export const useTextChat = () => {
 
   const sendMessage = useCallback(
     (message: string) => {
-      if (!avatarRef.current) return;
+      if (!avatarRef.current) return;        
       avatarRef.current.speak({
         text: message,
         taskType: TaskType.TALK,

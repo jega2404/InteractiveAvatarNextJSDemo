@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from "react";
-
 import { useMessageHistory, MessageSender } from "../logic";
 
 export const MessageHistory: React.FC = () => {
@@ -8,9 +7,7 @@ export const MessageHistory: React.FC = () => {
 
   useEffect(() => {
     const container = containerRef.current;
-
     if (!container || messages.length === 0) return;
-
     container.scrollTop = container.scrollHeight;
   }, [messages]);
 

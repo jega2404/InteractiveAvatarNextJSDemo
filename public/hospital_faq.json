@@ -1,0 +1,95 @@
+[
+  
+  {
+    "question": "Where is the hospital located?",
+    "answer": "Our hospital is located in Saudi Arabia and easily accessible via major roads. For detailed directions, please check the 'Contact Us' or 'Find Us' section on our website."
+  },
+  {
+    "question": "What are your working hours?",
+    "answer": "Outpatient clinics typically operate from 8:00 AM to 8:00 PM, Saturday through Thursday. Emergency services are available 24/7, even on holidays."
+  },
+  {
+    "question": "Do you accept walk-in patients?",
+    "answer": "Yes! Walk-ins are welcome, though appointments are recommended to reduce waiting time."
+  },
+  {
+    "question": "How can I book an appointment?",
+    "answer": "You can book an appointment through the hospital website, our mobile app, calling the hospital’s call center, or visiting the registration desk onsite."
+  },
+  {
+    "question": "What documents do I need for registration?",
+    "answer": "Bring your National ID/Iqama, insurance card, and previous medical reports (if any). If you forget them, we’ll help sort things out."
+  },
+  {
+    "question": "Can I reschedule or cancel my appointment?",
+    "answer": "Yes — you can reschedule or cancel via the website, mobile app, or by calling the call center."
+  },
+  {
+    "question": "Do you accept health insurance?",
+    "answer": "Yes, we accept major insurance providers approved in Saudi Arabia. Coverage varies by insurer and plan."
+  },
+  {
+    "question": "How can I know if my insurance covers a specific treatment?",
+    "answer": "Our insurance desk will verify your coverage and explain what’s included."
+  },
+  {
+    "question": "What payment methods do you accept?",
+    "answer": "We accept cash, debit/credit cards, and approved insurance claims."
+  },
+  {
+    "question": "What are the visiting hours?",
+    "answer": "General wards: 4:00 PM – 8:00 PM. ICU visiting is limited and based on patient condition — please check with the nursing staff."
+  },
+  {
+    "question": "Are children allowed to visit?",
+    "answer": "Children are allowed under supervision, except in restricted areas like the ICU."
+  },
+  {
+    "question": "Do you allow multiple visitors at a time?",
+    "answer": "To maintain a calm healing environment, we limit visitors to 2 at a time."
+  },
+  {
+    "question": "What specialties do you offer?",
+    "answer": "We provide many specialties including Internal Medicine, Pediatrics, Surgery, Cardiology, Orthopedics, Obstetrics & Gynecology, Dermatology, and more."
+  },
+  {
+    "question": "Do you have emergency services?",
+    "answer": "Yes — our fully equipped 24/7 Emergency Department is staffed by trained emergency physicians and nurses."
+  },
+  {
+    "question": "Do you provide pharmacy services?",
+    "answer": "Yes, our onsite pharmacy operates during hospital hours and the emergency pharmacy is open round-the-clock."
+  },
+  {
+    "question": "Is there a private room option?",
+    "answer": "Yes, we offer private, semi-private, and VIP rooms depending on availability and insurance coverage."
+  },
+  {
+    "question": "Do you offer ambulance services?",
+    "answer": "Yes, we provide ambulance services for emergency and non-emergency transfers."
+  },
+  {
+    "question": "Can I request a medical report?",
+    "answer": "Yes — visit the Medical Records Department or request it through our digital channels."
+  },
+  {
+    "question": "Can I access my medical records online?",
+    "answer": "Yes — our patient portal lets you view lab results, prescriptions, and upcoming appointments."
+  },
+  {
+    "question": "Do you offer telemedicine?",
+    "answer": "Yes — you can consult doctors online through our telemedicine service."
+  },
+  {
+    "question": "Do you offer vaccination services?",
+    "answer": "Yes, we provide routine vaccinations for adults and children."
+  },
+  {
+    "question": "Do you have facilities for international patients?",
+    "answer": "Yes — we offer translation assistance, dedicated coordinators, and support for medical tourism procedures."
+  },
+  {
+    "question": "Who do I contact for feedback or complaints?",
+    "answer": "Our Patient Relations Department is available to assist you and ensure your experience is smooth and comfortable."
+  }
+]

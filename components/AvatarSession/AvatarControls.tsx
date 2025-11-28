@@ -1,21 +1,32 @@
 import { ToggleGroup, ToggleGroupItem } from "@radix-ui/react-toggle-group";
 import React from "react";
 
-import { useVoiceChat } from "../logic/useVoiceChat";
-import { Button } from "../Button";
+import { useStreamingAvatarSession } from "../logic/useStreamingAvatarSession";
 import { useInterrupt } from "../logic/useInterrupt";
+import { Button } from "../Button";
 
 import { AudioInput } from "./AudioInput";
 import { TextInput } from "./TextInput";
 
 export const AvatarControls: React.FC = () => {
-  const {
-    isVoiceChatLoading,
-    isVoiceChatActive,
-    startVoiceChat,
-    stopVoiceChat,
-  } = useVoiceChat();
+  const { avatarRef } = useStreamingAvatarSession();
   const { interrupt } = useInterrupt();
+
+  // Determine if voice chat is active
+  const isVoiceChatActive = !!avatarRef.current?.stopListening;
+  const isVoiceChatLoading = false; // You can update with actual loading state if available
+
+  const startVoiceChat = async () => {
+    if (avatarRef.current?.startVoiceChat) {
+      await avatarRef.current.startVoiceChat({ isInputAudioMuted: false });
+    }
+  };
+
+  const stopVoiceChat = async () => {
+    if (avatarRef.current?.closeVoiceChat) {
+      await avatarRef.current.closeVoiceChat();
+    }
+  };
 
   return (
     <div className="flex flex-col gap-3 relative w-full items-center">
@@ -27,11 +38,7 @@ export const AvatarControls: React.FC = () => {
         onValueChange={(value) => {
           if (value === "voice" && !isVoiceChatActive && !isVoiceChatLoading) {
             startVoiceChat();
-          } else if (
-            value === "text" &&
-            isVoiceChatActive &&
-            !isVoiceChatLoading
-          ) {
+          } else if (value === "text" && isVoiceChatActive && !isVoiceChatLoading) {
             stopVoiceChat();
           }
         }}
@@ -49,7 +56,9 @@ export const AvatarControls: React.FC = () => {
           Text Chat
         </ToggleGroupItem>
       </ToggleGroup>
+
       {isVoiceChatActive || isVoiceChatLoading ? <AudioInput /> : <TextInput />}
+
       <div className="absolute top-[-70px] right-3">
         <Button className="!bg-zinc-700 !text-white" onClick={interrupt}>
           Interrupt

@@ -39,17 +39,21 @@ type StreamingAvatarContextProps = {
   setStream: (stream: MediaStream | null) => void;
 
   messages: Message[];
+  setMessages: React.Dispatch<React.SetStateAction<Message[]>>; // ✅ FIX ADDED
   clearMessages: () => void;
+
   handleUserTalkingMessage: ({
     detail,
   }: {
     detail: UserTalkingMessageEvent;
   }) => void;
+
   handleStreamingTalkingMessage: ({
     detail,
   }: {
     detail: StreamingTalkingMessageEvent;
   }) => void;
+
   handleEndMessage: () => void;
 
   isListening: boolean;
@@ -77,6 +81,7 @@ const StreamingAvatarContext = React.createContext<StreamingAvatarContextProps>(
     stream: null,
     setStream: () => {},
     messages: [],
+    setMessages: () => {}, // ✅ FIX ADDED
     clearMessages: () => {},
     handleUserTalkingMessage: () => {},
     handleStreamingTalkingMessage: () => {},
@@ -183,6 +188,7 @@ const useStreamingAvatarMessageState = () => {
 
   return {
     messages,
+    setMessages, // ✅ FIX ADDED
     clearMessages: () => {
       setMessages([]);
       currentSenderRef.current = null;
@@ -227,6 +233,7 @@ export const StreamingAvatarProvider = ({
   basePath?: string;
 }) => {
   const avatarRef = React.useRef<StreamingAvatar>(null);
+
   const voiceChatState = useStreamingAvatarVoiceChatState();
   const sessionState = useStreamingAvatarSessionState();
   const messageState = useStreamingAvatarMessageState();
@@ -241,10 +248,17 @@ export const StreamingAvatarProvider = ({
         basePath,
         ...voiceChatState,
         ...sessionState,
-        ...messageState,
         ...listeningState,
         ...talkingState,
         ...connectionQualityState,
+
+        messages: messageState.messages,
+        setMessages: messageState.setMessages, // ✅ FIX ADDED
+        clearMessages: messageState.clearMessages,
+        handleUserTalkingMessage: messageState.handleUserTalkingMessage,
+        handleStreamingTalkingMessage:
+          messageState.handleStreamingTalkingMessage,
+        handleEndMessage: messageState.handleEndMessage,
       }}
     >
       {children}
